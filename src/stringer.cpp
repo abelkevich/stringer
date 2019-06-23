@@ -20,7 +20,7 @@ public:
 
 	}
 
-	uint16_t getId(bool flag) const { return flag ? m_id : 9999; }
+	uint16_t getId() const { return m_id;}
 	std::string getName() const { return m_name; }
 
 	void setId(uint16_t id) { m_id = id; }
@@ -101,12 +101,12 @@ public:
 
 std::map<size_t, ClassDescriptor> Parsable::m_map_class_descriptors = std::map<size_t, ClassDescriptor>();
 
-template<typename T_CLASS, typename T_RETVAL, typename... TARGS>
-Field makeField(std::string name, std::function<std::string(T_RETVAL)> f_to_string, T_RETVAL(T_CLASS::*getter)(TARGS...) const, TARGS... args)
+template<typename T_CLASS, typename T_RETVAL>
+Field makeField(std::string name, std::function<std::string(T_RETVAL)> f_to_string, T_RETVAL(T_CLASS::*getter)() const)
 {
 	auto to_string = [=](const void* p) -> std::string 
 		{ 
-			return f_to_string(std::invoke(getter, reinterpret_cast<const T_CLASS*>(p), std::forward<TARGS>(args)...)); 
+			return f_to_string(std::invoke(getter, reinterpret_cast<const T_CLASS*>(p))); 
 		};
 
 	return Field(name, to_string);
@@ -124,7 +124,7 @@ int main()
 	Parsable::addDescriptor<Sample>
 	( 
 		ClassDescriptor("Sample",
-			{ makeField<Sample, uint16_t, bool>("id", std_to_string, &Sample::getId, false)
+			{ makeField<Sample>("id", std_to_string, &Sample::getId)
 			, makeField<Sample, std::string>("name", none, &Sample::getName) })
 	);
 
