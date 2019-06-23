@@ -7,9 +7,6 @@
     <Filter Include="include">
       <UniqueIdentifier>{0bf8a34e-8e6d-4377-a4d0-a7c0d8732666}</UniqueIdentifier>
     </Filter>
-    <Filter Include="tests">
-      <UniqueIdentifier>{fcd41775-05eb-45ae-87f0-e83bc5e40bf2}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\class_descriptor.cpp">
@@ -17,9 +14,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\field.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\tests\sample.cpp">
-      <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

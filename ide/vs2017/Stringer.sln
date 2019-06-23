@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stringer", "Stringer.vcxproj", "{61B5A61C-0B72-46F1-896E-E3EAE4159825}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests.vcxproj", "{566D761B-26FE-4C03-BD51-AE12F06F57FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -13,8 +15,14 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{61B5A61C-0B72-46F1-896E-E3EAE4159825}.Debug|x64.ActiveCfg = Debug|x64
 		{61B5A61C-0B72-46F1-896E-E3EAE4159825}.Debug|x64.Build.0 = Debug|x64
+		{61B5A61C-0B72-46F1-896E-E3EAE4159825}.Debug|x86.ActiveCfg = Debug|x64
 		{61B5A61C-0B72-46F1-896E-E3EAE4159825}.Release|x64.ActiveCfg = Release|x64
 		{61B5A61C-0B72-46F1-896E-E3EAE4159825}.Release|x64.Build.0 = Release|x64
+		{61B5A61C-0B72-46F1-896E-E3EAE4159825}.Release|x86.ActiveCfg = Release|x64
+		{566D761B-26FE-4C03-BD51-AE12F06F57FB}.Debug|x64.ActiveCfg = Debug|x64
+		{566D761B-26FE-4C03-BD51-AE12F06F57FB}.Debug|x64.Build.0 = Debug|x64
+		{566D761B-26FE-4C03-BD51-AE12F06F57FB}.Release|x64.ActiveCfg = Release|x64
+		{566D761B-26FE-4C03-BD51-AE12F06F57FB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
