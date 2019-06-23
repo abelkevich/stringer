@@ -4,10 +4,33 @@
     <Filter Include="src">
       <UniqueIdentifier>{ee214a81-7882-4051-a59a-377cc9f6bbc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{0bf8a34e-8e6d-4377-a4d0-a7c0d8732666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{fcd41775-05eb-45ae-87f0-e83bc5e40bf2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\stringer.cpp">
+    <ClCompile Include="..\..\src\class_descriptor.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\field.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\sample.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\class_descriptor.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\field.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\stringer.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
