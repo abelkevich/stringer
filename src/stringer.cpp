@@ -102,7 +102,7 @@ public:
 std::map<size_t, ClassDescriptor> Parsable::m_map_class_descriptors = std::map<size_t, ClassDescriptor>();
 
 template<typename T_CLASS, typename T_RETVAL>
-Field makeField(std::string name, std::function<std::string(T_RETVAL)> f_to_string, T_RETVAL(T_CLASS::*getter)() const)
+Field makeField(std::string name, T_RETVAL(T_CLASS::*getter)() const, std::function<std::string(T_RETVAL)> f_to_string)
 {
 	auto to_string = [=](const void* p) -> std::string 
 		{ 
@@ -116,16 +116,14 @@ int main()
 {
 	Sample sample_0(0, "zero");
 
-	auto std_to_string = [=](auto val) -> std::string {return std::to_string(val); };
-	auto none = [=](auto val) -> std::string { return val; };
-
-	bool flag = false;
+	auto std_to_string = [=](auto val) {return std::to_string(val); };
+	auto none = [=](auto val) { return val; };
 
 	Parsable::addDescriptor<Sample>
 	( 
 		ClassDescriptor("Sample",
-			{ makeField<Sample>("id", std_to_string, &Sample::getId)
-			, makeField<Sample, std::string>("name", none, &Sample::getName) })
+			{ makeField<Sample, uint16_t>("id", &Sample::getId, std_to_string)
+			, makeField<Sample, std::string>("name", &Sample::getName, none) })
 	);
 
 	std::cout << Parsable::toString(sample_0) << std::endl;
