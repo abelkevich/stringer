@@ -7,23 +7,21 @@
 
 namespace Stringer
 {
-	static std::map<size_t, ClassDescriptor> m_map_class_descriptors = std::map<size_t, ClassDescriptor>();
+	std::string toString(size_t hash, const void *p);
 
 	template <typename T>
 	std::string toString(const T &obj)
 	{
-		auto it = m_map_class_descriptors.find(typeid(T).hash_code());
-
-		if (it == m_map_class_descriptors.end()) return "Cannot find rules for class!";
-
-		return it->second.toString(&obj);
+		return toString(typeid(T).hash_code(), &obj);
 	}
+
+
+	void addDescriptor(size_t hash, ClassDescriptor descriptor);
 
 	template <typename T>
 	void addDescriptor(ClassDescriptor descriptor)
 	{
-		auto record = std::make_pair(typeid(T).hash_code(), descriptor);
-		m_map_class_descriptors.insert(record);
+		addDescriptor(typeid(T).hash_code(), descriptor);
 	}
 
 	template<typename T_CLASS, typename T_RETVAL>
